@@ -15,8 +15,8 @@ This CSS Art captures the *real-life hustle and chaos of modern office life* —
 
 ## 🖥️ Demo
 
-- **Live Demo:** [View on GitHub Pages](https://your-username.github.io/your-repo-link/)
-- **Code:** [`https://github.com/your-username/your-repo-link`](https://github.com/your-username/your-repo-link)
+- **Live Demo:** [View on My Site](https://build.toyaab.com/)
+- **Code:** [`https://github.com/mrteesurez/browser-tabs-hell`](https://github.com/your-username/browser-tabs-hell)
 
 ---
 
@@ -67,7 +67,7 @@ You’re free to use, remix, and credit properly.
 
 ## 📸 Preview
 
-![Screenshot](screenshot.png)
+- **Live Demo:** [View on My Site](https://build.toyaab.com/)
 
 ---
 
