@@ -1,0 +1,331 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Office Scene Wrapper */
+.office-scene {
+  position: relative;
+  width: 95%;
+  max-width: 1200px;
+  padding: 2rem 1rem;
+}
+
+/* Clock */
+.clock-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+}
+
+.clock {
+  width: 100%;
+  height: 100%;
+  border: 5px solid #222;
+  border-radius: 50%;
+  position: relative;
+  background: #fff;
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: #222;
+  top: 50%;
+  left: 50%;
+  transform-origin: left;
+}
+
+.hour { animation: rotateHour 43200s linear infinite; }
+.minute { animation: rotateMinute 3600s linear infinite; }
+.second {
+  background: red;
+  height: 1px;
+  animation: rotateSecond 60s linear infinite;
+}
+
+.center-dot {
+  width: 6px;
+  height: 6px;
+  background: #222;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Sticky Notes */
+.sticky-note {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transform: rotate(-5deg);
+  transition: transform 0.3s;
+  z-index: 1;
+}
+
+.note1 { top: 120px; left: 40px; background: #fff8a6; }
+.note2 { top: 120px; right: 40px; background: #ffc2dc; }
+.note3 { top: 180px; left: 150px; background: #b3e5fc; }
+
+.sticky-note:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* Browser Window */
+.browser-window {
+  margin-top: 250px;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  background: #ddd;
+  padding: 5px;
+  gap: 4px;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+.tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 5px;
+}
+
+.tab {
+  padding: 8px 12px;
+  background: #eee;
+  border-radius: 5px 5px 0 0;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.tab .close {
+  margin-left: 8px;
+  color: #888;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #fff;
+  font-weight: bold;
+}
+
+.tab.meeting {
+  animation: pulse 2s infinite;
+}
+
+/* Screen Area */
+.screen {
+  height: 200px;
+  position: relative;
+  background: #fdfdfd;
+}
+
+/* Busy Light */
+.busy-light {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  animation: blink 1s infinite alternate;
+}
+
+/* Page Content */
+.page-content {
+  flex: 1;
+  background: white;
+  padding: 1rem;
+  overflow: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.page-content code {
+  background: #f4f4f4;
+  padding: 4px 6px;
+  margin: 10px 0px 0px 10px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Cursor */
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L16 8L0 16Z"/></svg>') no-repeat center;
+  background-size: contain;
+  animation: moveCursor 10s linear infinite alternate;
+}
+
+/* Keyboard */
+.keyboard {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.keys {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.key {
+  width: 30px;
+  height: 30px;
+  background: #333;
+  border-radius: 4px;
+  box-shadow: 0 2px #000;
+}
+
+.typing {
+  animation: pressKey 0.5s ease-in-out infinite alternate;
+}
+
+.delay1 { animation-delay: 0.2s; }
+.delay2 { animation-delay: 0.4s; }
+.delay3 { animation-delay: 0.6s; }
+
+/* Coffee cup */
+.coffee-cup {
+  position: absolute;
+  bottom: 100px;
+  right: 120px;
+  width: 40px;
+  height: 50px;
+  background: #6b4f3b;
+  border-radius: 0 0 10px 10px;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.3);
+  z-index: 3;
+}
+
+.coffee-cup::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 8px;
+  width: 10px;
+  height: 30px;
+  background: linear-gradient(to top, rgba(255,255,255,0.3), transparent);
+  border-radius: 50%;
+  animation: steamUp 2s ease-in-out infinite;
+  filter: blur(1px);
+  opacity: 0.7;
+}
+
+/* Water Cooler */
+.water-cooler {
+  position: absolute;
+  bottom: 100px;
+  left: 40px;
+  width: 40px;
+  height: 90px;
+  background: #aaf;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.bubbles {
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  animation: bubbleUp 3s infinite;
+}
+
+.bubble1 { left: 10px; bottom: 10px; }
+.bubble2 { left: 25px; bottom: 20px; animation-delay: 1.5s; }
+
+/* Animations */
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0.3; }
+}
+
+@keyframes pulse {
+  0%, 100% { background: #ffdede; }
+  50% { background: #ff0000; }
+}
+
+@keyframes pressKey {
+  from { transform: scale(1); }
+  to { transform: scale(0.9); }
+}
+
+@keyframes steamUp {
+  0% { transform: translateY(0); opacity: 0.4; }
+  100% { transform: translateY(-20px); opacity: 0; }
+}
+
+@keyframes bubbleUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-20px); opacity: 0; }
+}
+
+@keyframes moveCursor {
+  0% { top: 50px; left: 50px; }
+  50% { top: 120px; left: 120px; }
+  100% { top: 80px; left: 200px; }
+}
+
+@keyframes rotateHour {
+  100% { transform: rotate(360deg); }
+}
+@keyframes rotateMinute {
+  100% { transform: rotate(360deg); }
+}
+@keyframes rotateSecond {
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .sticky-note { width: 80px; height: 80px; font-size: 12px; }
+  .tab { font-size: 12px; padding: 6px; }
+  .keyboard .key { width: 24px; height: 24px; }
+  .coffee-cup, .water-cooler { transform: scale(0.8); }
+  .clock-container { width: 60px; height: 60px; }
+  .coffee-cup { right: 60px; bottom: 90px; }
+  .water-cooler { left: 20px; bottom: 90px; }
+}
+  
